@@ -38,28 +38,26 @@ def displaydec(event):
 
 
 Num_Buttons=tk.Frame(root,borderwidth=10)
-display=tk.Frame(root)
-entry=tk.Frame(root)
-
 decimal=tk.Button(Num_Buttons,text="DEC",background='grey',height=2,width=10,border=4)
-dec_label=tk.Label(display,text=dec_val,background='pink',height=2,width=20,border=4,borderwidth=5,relief='groove')
+decimal.grid(row=0,column=0)
 binary=tk.Button(Num_Buttons,text="BIN",background='grey',height=2,width=10,border=4)
-bin_label=tk.Label(display,text=bin_val,background='pink',height=2,width=20,border=4,borderwidth=5,relief='groove')
+binary.grid(row=1,column=0)
 hexa=tk.Button(Num_Buttons,text="HEX",background='grey',height=2,width=10,border=4)
-hex_label=tk.Label(display,text=hex_val,background='pink',height=2,width=20,border=4,borderwidth=5,relief='groove')
+hexa.grid(row=2,column=0)
 
+display=tk.Frame(root)
+dec_label=tk.Label(display,text=dec_val,background='pink',height=2,width=20,border=4,borderwidth=5,relief='groove')
+dec_label.grid(row=0,column=0)
+bin_label=tk.Label(display,text=bin_val,background='pink',height=2,width=20,border=4,borderwidth=5,relief='groove')
+bin_label.grid(row=1,column=0)
+hex_label=tk.Label(display,text=hex_val,background='pink',height=2,width=20,border=4,borderwidth=5,relief='groove')
+hex_label.grid(row=2,column=0)
+
+entry=tk.Frame(root)
 text=tk.StringVar()
 entry_box=tk.Entry(entry,textvariable=text,bd=5,border=5,cursor='right_side',relief='groove',width=15,state=tk.DISABLED)
-entry_box.grid(row=0,column=0)
-
 entry_box.bind('<Return>',displaydec)
-
-decimal.grid(row=0,column=0)
-dec_label.grid(row=0,column=0)
-binary.grid(row=1,column=0)
-bin_label.grid(row=1,column=0)
-hexa.grid(row=2,column=0)
-hex_label.grid(row=2,column=0)
+entry_box.grid(row=0,column=0)
 
 decimal.bind('<Button>',dec_activate)
 decimal.bind('<Button>',take_dec_val,add='+')
